@@ -43,4 +43,18 @@
 
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
 
+```
+  SELECT c.CategoryName, count(CategoryName) as Count
+  FROM Categories as c
+  LEFT JOIN Products as p
+  ON c.CategoryId = p.CategoryId
+  GROUP BY c.CategoryName
+```
+
 ### (Stretch) Display OrderID and a  column called ItemCount that shows the total number of products placed on the order. Shows 196 records. 
+
+```
+  SELECT O.OrderId , count(O.ProductId) as ItemCount
+  FROM OrderDetails as O
+  GROUP BY O.OrderId
+```
